@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Tienda de Productos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <header class="bg-indigo-600 text-white shadow-lg">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="text-2xl font-bold">
+                Mi Tienda
+            </div>
+            <div class="hidden md:flex space-x-4">
+                <a href="#inicio" class="hover:text-indigo-200 transition duration-300">Inicio</a>
+                <a href="#productos" class="hover:text-indigo-200 transition duration-300">Productos</a>
+                <a href="#sobre-nosotros" class="hover:text-indigo-200 transition duration-300">Sobre Nosotros</a>
+                <a href="#contacto" class="hover:text-indigo-200 transition duration-300">Contacto</a>
+            </div>
+            <div id="cart-info" class="text-sm bg-indigo-700 px-3 py-1 rounded-full">
+                Carrito: <span id="cart-count" class="font-bold">0</span> items
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-8">
+        <section id="inicio" class="mb-12 text-center">
+            <h1 class="text-4xl font-bold mb-4 text-indigo-800">Bienvenido a nuestra tienda</h1>
+            <p class="text-xl text-gray-600">Aquí encontrarás los mejores productos al mejor precio.</p>
+        </section>
+
+        <section id="productos" class="mb-12">
+            <h2 class="text-3xl font-bold mb-6 text-center text-indigo-800">Nuestros Productos</h2>
+            <div id="product-list" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Products will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <section id="cart" class="mb-12 bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-2xl font-bold mb-4 text-indigo-800">Carrito de Compras</h2>
+            <div id="cart-items" class="mb-4"></div>
+            <div class="flex justify-between items-center mb-4">
+                <span class="text-xl">Total:</span>
+                <span class="text-2xl font-bold text-indigo-600">$<span id="cart-total">0</span></span>
+            </div>
+            <button id="checkout" class="w-full bg-indigo-600 text-white px-4 py-2 rounded-full hover:bg-indigo-700 transition duration-300">
+                Realizar Compra
+            </button>
+        </section>
+
+        <section id="checkout-form" class="hidden mb-12 bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-2xl font-bold mb-4 text-indigo-800">Formulario de Compra</h2>
+            <form id="purchase-form" class="space-y-4">
+                <div>
+                    <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                </div>
+                <div>
+                    <label for="apellidos" class="block text-sm font-medium text-gray-700">Apellidos</label>
+                    <input type="text" id="apellidos" name="apellidos" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                </div>
+                <div>
+                    <label for="cedula" class="block text-sm font-medium text-gray-700">Número de Cédula</label>
+                    <input type="text" id="cedula" name="cedula" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                </div>
+                <div>
+                    <label for="direccion" class="block text-sm font-medium text-gray-700">Dirección</label>
+                    <input type="text" id="direccion" name="direccion" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                </div>
+                <button type="submit" class="w-full bg-indigo-600 text-white px-4 py-2 rounded-full hover:bg-indigo-700 transition duration-300">
+                    Enviar Pedido
+                </button>
+            </form>
+        </section>
+
+        <section id="sobre-nosotros" class="mb-12">
+            <h2 class="text-3xl font-bold mb-4 text-indigo-800">Sobre Nosotros</h2>
+            <p class="text-gray-600">Somos una tienda comprometida con ofrecer los mejores productos a nuestros clientes. Nuestra misión es proporcionar calidad y satisfacción en cada compra.</p>
+        </section>
+
+        <section id="contacto" class="mb-12">
+            <h2 class="text-3xl font-bold mb-4 text-indigo-800">Contacto</h2>
+            <p class="text-gray-600">Puedes contactarnos en:</p>
+            <ul class="list-disc list-inside text-gray-600">
+                <li>Email: info@mitienda.com</li>
+                <li>Teléfono: +598 98964333</li>
+                <li>Dirección: Bal598zar Brum #, Paso de los Toros, Tacuarembo, Uruguay</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="bg-indigo-800 text-white py-6">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2023 Mi Tienda de Productos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
